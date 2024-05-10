@@ -2,9 +2,25 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ex6 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite o primeiro número: ");
+        ex1(scanner);
+        ex2(scanner);
+        ex3(null);
+        ex4(scanner);
+        ex5(scanner);
+        ex61(scanner);
+        ex7(scanner);
+        ex8(scanner);
+        ex9(scanner);
+        ex10(scanner);
+        scanner.close();
+    }
+
+    public static void ex1(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
+        System.out.print("\nDigite o primeiro número: ");
         double numero1 = scanner.nextDouble();
         System.out.print("Digite o segundo número: ");
         double numero2 = scanner.nextDouble();
@@ -12,12 +28,12 @@ public class ex6 {
         double numero3 = scanner.nextDouble();
         double media = (numero1 + numero2 + numero3) / 3;
         System.out.println("A média é: " + media);
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main2(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Digite um número: ");
+    public static void ex2(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
+        System.out.print("\nDigite um número: ");
         int numero = scanner.nextInt();
         if (numero > 0) {
             System.out.println("O número é positivo.");
@@ -26,10 +42,10 @@ public class ex6 {
         } else {
             System.out.println("O número é zero.");
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main3(String[] args) {
+    public static void ex3(String[] args) {
         int numero = 0;
         do {
             if (numero % 3 == 0) {
@@ -39,8 +55,8 @@ public class ex6 {
         } while (numero <= 30);
     }
 
-    public static void main4(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void ex4(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
         System.out.print("Digite um número: ");
         int numero = scanner.nextInt();
         System.out.println("Tabuada de " + numero + ":");
@@ -48,11 +64,11 @@ public class ex6 {
             int resultado = numero * i;
             System.out.println(numero + " x " + i + " = " + resultado);
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main5(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void ex5(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
         System.out.print("Digite um ano: ");
         int ano = scanner.nextInt();
         boolean bissexto = false;
@@ -70,12 +86,12 @@ public class ex6 {
         } else {
             System.out.println("O ano não é bissexto.");
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main6(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Digite a temperatura em graus Celsius:");
+    public static void ex61(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
+        System.out.print("Digite a temperatura em graus Celsius: ");
         double celsius = scanner.nextDouble(); // Converte para Fahrenheit
         double fahrenheit = (celsius * 9 / 5) + 32;
         System.out.println("A temperatura em graus Fahrenheit é: " + fahrenheit); // Verifica e imprime se está frio,
@@ -87,11 +103,11 @@ public class ex6 {
         } else {
             System.out.println("Está quente!");
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main7(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void ex7(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
         System.out.print("Digite um número inteiro: ");
         int n = scanner.nextInt();
         for (int i = 1; i <= n; i++) {
@@ -100,11 +116,11 @@ public class ex6 {
             }
             System.out.println();
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main8(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void ex8(Scanner scanner) {
+        // Scanner scanner = new Scanner(System.in);
         String[] unidadesRomanas = { "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" };
         String[] dezenasRomanas = { "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" };
         String[] centenasRomanas = { "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" };
@@ -121,13 +137,13 @@ public class ex6 {
             String numeroRomano = milhares + centenas + dezenas + unidades;
             System.out.println("Número romano equivalente: " + numeroRomano);
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main9(String[] args) {
+    public static void ex9(Scanner scanner) {
         String[] palavras = { "abacaxi", "banana", "laranja", "morango", "uva" };
         Random random = new Random();
-        Scanner scanner = new Scanner(System.in);
+        // Scanner scanner = new Scanner(System.in);
         String palavraSelecionada = palavras[random.nextInt(palavras.length)];
         int tentativas = 6;
         StringBuilder palavraAdivinhada = new StringBuilder();
@@ -140,7 +156,7 @@ public class ex6 {
             System.out.println("Palavra: " + palavraAdivinhada);
             System.out.println("Tentativas restantes: " + tentativas);
             System.out.print("Digite uma letra: ");
-            char letra = scanner.nextLine().charAt(0);
+            char letra = scanner.next().charAt(0);
             boolean letraAdivinhada = false;
             for (int i = 0; i < palavraSelecionada.length(); i++) {
                 if (palavraSelecionada.charAt(i) == letra) {
@@ -159,12 +175,12 @@ public class ex6 {
         if (tentativas == 0) {
             System.out.println("Game over! A palavra era: " + palavraSelecionada);
         }
-        scanner.close();
+        // scanner.close();
     }
 
-    public static void main10(String[] args) {
+    public static void ex10(Scanner scanner) {
         String palavra1 = "banana";
-        String palavra2 = "bandana";
+        String palavra2 = "bandnanana";
         int distancia = calcularDistanciaLevenshtein(palavra1, palavra2);
         System.out.println("Distância de Levenshtein entre \"" + palavra1 + "\" e \"" + palavra2 + "\": " + distancia);
     }
