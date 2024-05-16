@@ -1,7 +1,7 @@
-/*Aluno : Thiago Dorfman Lufchitz
+/*Aluno modeloo Dorfman Lufchitz
  *Materia :  Fundamentos da Programação Orientada a Objetos
  */
-package pacote1;
+package modelo;
 
 public class Financiamento {
 

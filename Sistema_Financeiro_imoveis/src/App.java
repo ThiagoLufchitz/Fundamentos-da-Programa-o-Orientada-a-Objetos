@@ -2,8 +2,8 @@
 /*Aluno : Thiago Dorfman Lufchitz
  *Materia :  Fundamentos da Programação Orientada a Objetos
  */
-import pacote1.Financiamento;
-import pacote2.InteraceUsuario;
+import modelo.Financiamento;
+import util.InteraceUsuario;
 
 public class App {
     public static void main(String[] args) throws Exception {

@@ -1,7 +1,7 @@
 /*Aluno : Thiago Dorfman Lufchitz
  *Materia :  Fundamentos da Programação Orientada a Objetos
  */
-package pacote2;
+package util;
 
 import java.util.*;
 
