@@ -1,9 +1,15 @@
+/*Aluno : Thiago Dorfman Lufchitz
+ *Materia :  Fundamentos da Programação Orientada a Objetos
+ */
 package pacote1;
 
 public class Financiamento {
 
+    @SuppressWarnings("unused")
     private double valorimovel;
+    @SuppressWarnings("unused")
     private int prazoFinanciamento;
+    @SuppressWarnings("unused")
     private double taxaJurosAnual;
 
     public Financiamento(double valorimovel, int prazoFinanciamento, double taxaJurosAnual) {

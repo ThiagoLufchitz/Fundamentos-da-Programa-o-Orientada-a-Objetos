@@ -1,3 +1,7 @@
+
+/*Aluno : Thiago Dorfman Lufchitz
+ *Materia :  Fundamentos da Programação Orientada a Objetos
+ */
 import pacote1.Financiamento;
 import pacote2.InteraceUsuario;
 
