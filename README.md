@@ -1,7 +1,7 @@
 # Fundamentos-da-Programa-o-Orientada-a-Objetos
-Sistema de Simulação de Financiamento de imóveis
+ ***Sistema de Simulação de Financiamento de imóveis***
 
-##A temática do nosso projeto da disciplina será um Sistema de Simulação de Financiamento de imóveis para um banco. Este sistema demonstra conceitos de Programação Orientada a Objetos e Java. Além disso, ajuda a abstrair conceitos da vida real para sistemas: o tipo de desafio que é comum termos no mercado de trabalho.
+A temática do nosso projeto da disciplina será um Sistema de Simulação de Financiamento de imóveis para um banco. Este sistema demonstra conceitos de Programação Orientada a Objetos e Java. Além disso, ajuda a abstrair conceitos da vida real para sistemas: o tipo de desafio que é comum termos no mercado de trabalho.
 
 # Funcionalidades obrigatórias
   1 . O sistema usará conceitos de Programação Orientada a Objetos como, por exemplo:
