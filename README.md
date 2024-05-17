@@ -3,13 +3,10 @@ Sistema de Simulação de Financiamento de imóveis
 
 ##A temática do nosso projeto da disciplina será um Sistema de Simulação de Financiamento de imóveis para um banco. Este sistema demonstra conceitos de Programação Orientada a Objetos e Java. Além disso, ajuda a abstrair conceitos da vida real para sistemas: o tipo de desafio que é comum termos no mercado de trabalho.
 
-#Funcionalidades obrigatórias
-
- À medida em que avançarmos na disciplina daremos mais detalhes de cada um dos itens. Fique sempre à vontade para tirar as suas dúvidas pelo Fale com a Gente, ou nos demais meios de comunicação.
-
+# Funcionalidades obrigatórias
  1. O sistema usará conceitos de Programação Orientada a Objetos como, por exemplo:
 
--Classes
+ -Classes
 -Objetos
 -Métodos
 -Atributos
