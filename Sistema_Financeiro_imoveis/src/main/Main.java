@@ -1,12 +1,13 @@
-
 /*Aluno : Thiago Dorfman Lufchitz
  *Materia :  Fundamentos da Programação Orientada a Objetos
  */
+package main;
+
 import modelo.Financiamento;
 import util.InteraceUsuario;
 
-public class App {
-    public static void main(String[] args) throws Exception {
+public class Main {
+    public static void main(String[] args) {
         double a1, a3, a4;
         int a2;
         InteraceUsuario d1 = new InteraceUsuario();
@@ -21,4 +22,5 @@ public class App {
         System.out.println(d2.TotaldoPagamento(a4, a2));
 
     }
+
 }

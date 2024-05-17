@@ -9,18 +9,36 @@ public class InteraceUsuario {
     Scanner sc = new Scanner(System.in);
 
     public double ValorImovel() {
-        System.out.println("Digite o valor do Imovel? ");
-        return Double.parseDouble(sc.nextLine());
+        while (true) {
+            System.out.println("Digite o valor do Imovel? ");
+            double valor = Double.parseDouble(sc.nextLine());
+            if (valor > 0) {
+                return valor;
+            }
+            System.out.println("Valor Incorreto Digite novamente!");
+        }
     }
 
     public int PrazoFinanciamento() {
-        System.out.println("Digite o valor do Prazo Financiado? ");
-        return Integer.parseInt(sc.nextLine());
+        while (true) {
+            System.out.println("Digite o valor do Prazo Financiado? ");
+            int prazo = Integer.parseInt(sc.nextLine());
+            if (prazo > 0) {
+                return prazo;
+            }
+            System.out.println("Valor Incorreto Digite novamente!");
+        }
     }
 
     public double TaxaJurosAnual() {
-        System.out.println("Digite o valor da Taxa de Juros Anual? ");
-        return Double.parseDouble(sc.nextLine());
+        while (true) {
+            System.out.println("Digite o valor da Taxa de Juros Anual? ");
+            double taxa = Double.parseDouble(sc.nextLine());
+            if (taxa > 0 && taxa <= 12) {
+                return taxa;
+            }
+            System.out.println("Valor Incorreto Digite novamente!(Entre 1% a 12%)");
+        }
     }
 
 }

@@ -5,12 +5,33 @@ package modelo;
 
 public class Financiamento {
 
-    @SuppressWarnings("unused")
     private double valorimovel;
-    @SuppressWarnings("unused")
     private int prazoFinanciamento;
-    @SuppressWarnings("unused")
     private double taxaJurosAnual;
+
+    public double getValorimovel() {
+        return valorimovel;
+    }
+
+    public void setValorimovel(double valorimovel) {
+        this.valorimovel = valorimovel;
+    }
+
+    public int getPrazoFinanciamento() {
+        return prazoFinanciamento;
+    }
+
+    public void setPrazoFinanciamento(int prazoFinanciamento) {
+        this.prazoFinanciamento = prazoFinanciamento;
+    }
+
+    public double getTaxaJurosAnual() {
+        return taxaJurosAnual;
+    }
+
+    public void setTaxaJurosAnual(double taxaJurosAnual) {
+        this.taxaJurosAnual = taxaJurosAnual;
+    }
 
     public Financiamento(double valorimovel, int prazoFinanciamento, double taxaJurosAnual) {
         this.valorimovel = valorimovel;
