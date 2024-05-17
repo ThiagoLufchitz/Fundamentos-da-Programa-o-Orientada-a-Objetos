@@ -40,7 +40,7 @@ public class InteraceUsuario {
         while (true) {
             System.out.println("Digite o valor da Taxa de Juros Anual? ");
             double taxa = Double.parseDouble(sc.nextLine());
-            if (taxa > 0 && taxa <= 12) {
+            if (taxa >= 1 && taxa <= 12) {
                 return taxa;
             }
             System.out.println("Valor Incorreto Digite novamente!(Entre 1% a 12%)");
