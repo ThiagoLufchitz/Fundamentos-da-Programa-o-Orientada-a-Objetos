@@ -20,7 +20,7 @@ public class Main {
             double ValorImovel = interaceUsuario.ValorImovel();
             int prazoFinanciamento = interaceUsuario.PrazoFinanciamento();
             double taxaJurosAnual = interaceUsuario.TaxaJurosAnual();
-            System.out.println("----------------");
+            System.out.print("----------------");
             Financiamento financiamento = new Financiamento(ValorImovel, prazoFinanciamento, taxaJurosAnual);
             financiamentos.add(financiamento);
             System.out.println();
@@ -34,11 +34,14 @@ public class Main {
             Financiamento financiamento = financiamentos.get(i);
             TotaldoImovel += financiamento.getValorimovel();
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
-            financiamento.ShowDadosImovel();
+            System.out.printf("Financiamento %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f.%n",
+                    (i + 1), financiamento.getValorimovel(), financiamento.TotaldoPagamento());
+            // System.out.println("Dados do " + (i + 1) + "° Imovel :");
+            // financiamento.ShowDadosImovel();
             System.out.println();
         }
 
-        System.out.printf("%nTotal de todos os imóveis: R$ %.2f%n", TotaldoImovel);
+        System.out.printf("Total de todos os imóveis: R$ %.2f%n", TotaldoImovel);
         System.out.printf("Total de todos os financiamentos: R$ %.2f%n", TotaldoFinanciamentos);
 
     }
