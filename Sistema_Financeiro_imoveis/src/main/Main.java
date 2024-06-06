@@ -3,23 +3,43 @@
  */
 package main;
 
+import java.util.ArrayList;
+
 import modelo.Financiamento;
 import util.InteraceUsuario;
 
 public class Main {
     public static void main(String[] args) {
-        double a1, a3, a4;
-        int a2;
-        InteraceUsuario d1 = new InteraceUsuario();
-        a1 = d1.ValorImovel();
-        a2 = d1.PrazoFinanciamento();
-        a3 = d1.TaxaJurosAnual();
-        Financiamento d2 = new Financiamento(a1, a2, a3);
-        System.out.println("----------------");
+        InteraceUsuario interaceUsuario = new InteraceUsuario();
 
-        a4 = d2.PagamentoMensal(a1, a2, a3);
-        System.out.println(a4);
-        System.out.println(d2.TotaldoPagamento(a4, a2));
+        ArrayList<Financiamento> financiamentos = new ArrayList<>();
+
+        // Solicitando quato imoveis para o usuario
+        for (int i = 1; i <= 4; i++) {
+            System.out.println("Digite os Dados do " + i + "° Imovel :");
+            double ValorImovel = interaceUsuario.ValorImovel();
+            int prazoFinanciamento = interaceUsuario.PrazoFinanciamento();
+            double taxaJurosAnual = interaceUsuario.TaxaJurosAnual();
+            System.out.println("----------------");
+            Financiamento financiamento = new Financiamento(ValorImovel, prazoFinanciamento, taxaJurosAnual);
+            financiamentos.add(financiamento);
+            System.out.println();
+        }
+
+        double TotaldoImovel = 0;
+        double TotaldoFinanciamentos = 0;
+
+        // Pegando os valores fornecidos
+        for (int i = 0; i < financiamentos.size(); i++) {
+            Financiamento financiamento = financiamentos.get(i);
+            TotaldoImovel += financiamento.getValorimovel();
+            TotaldoFinanciamentos += financiamento.TotaldoPagamento();
+            financiamento.ShowDadosImovel();
+            System.out.println();
+        }
+
+        System.out.printf("%nTotal de todos os imóveis: R$ %.2f%n", TotaldoImovel);
+        System.out.printf("Total de todos os financiamentos: R$ %.2f%n", TotaldoFinanciamentos);
 
     }
 
