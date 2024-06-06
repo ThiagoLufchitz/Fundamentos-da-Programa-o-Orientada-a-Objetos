@@ -34,7 +34,8 @@ public class Main {
             Financiamento financiamento = financiamentos.get(i);
             TotaldoImovel += financiamento.getValorimovel();
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
-            System.out.printf("Financiamento %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f.%n",
+            System.out.printf(
+                    "Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f.%n",
                     (i + 1), financiamento.getValorimovel(), financiamento.TotaldoPagamento());
             // System.out.println("Dados do " + (i + 1) + "° Imovel :");
             // financiamento.ShowDadosImovel();
