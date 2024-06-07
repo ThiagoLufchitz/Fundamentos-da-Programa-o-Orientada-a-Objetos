@@ -66,4 +66,43 @@ public class Financiamento {
         System.out.printf("Total do Pagamento: R$ %.2f%n", TotaldoPagamento());
     }
 
+    public static class Casa extends Financiamento {
+        public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+            super(valorimovel, prazoMensal, taxaJurosAnual);
+        }
+
+        @Override
+        public double PagamentoMensal() {
+            return super.PagamentoMensal() + 80;
+        }
+    }
+
+    public static class Apartamento extends Financiamento {
+        public Apartamento(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+            super(valorimovel, prazoMensal, taxaJurosAnual);
+        }
+
+        @Override
+        public double PagamentoMensal() {
+            double taxaMensal = getTaxaJurosAnual() / 12.0;
+            double Meses = getPrazoFinanciamento() * 12;
+            double valorTotal = (((getValorimovel() * (Math.pow(1 + taxaMensal, Meses))) * taxaMensal)
+                    / (Math.pow(1 + taxaMensal, Meses - 1)));
+            return valorTotal;
+        }
+
+    }
+
+    public static class Terreno extends Financiamento {
+        public Terreno(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+            super(valorimovel, prazoMensal, taxaJurosAnual);
+        }
+
+        @Override
+        public double PagamentoMensal() {
+            return super.PagamentoMensal() * 1.02;
+        }
+
+    }
+
 }

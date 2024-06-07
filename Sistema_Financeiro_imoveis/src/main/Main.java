@@ -6,14 +6,14 @@ package main;
 import java.util.ArrayList;
 
 import modelo.Financiamento;
-import util.InteraceUsuario;
+import util.IntefaceUsuario;
 
 public class Main {
     public static void main(String[] args) {
         double TotaldoImovel = 0;
         double TotaldoFinanciamentos = 0;
 
-        InteraceUsuario interaceUsuario = new InteraceUsuario();
+        IntefaceUsuario interaceUsuario = new IntefaceUsuario();
 
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 

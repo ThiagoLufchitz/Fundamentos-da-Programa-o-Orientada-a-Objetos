@@ -5,11 +5,11 @@ package util;
 
 import java.util.*;
 
-public class InteraceUsuario {
+public class IntefaceUsuario {
     private Scanner sc;
 
     // metodo que le valores inseridos pelo usuario
-    public InteraceUsuario() {
+    public IntefaceUsuario() {
         sc = new Scanner(System.in);
     }
     // Metodo para obter o tipo do imovel a ser financiado
