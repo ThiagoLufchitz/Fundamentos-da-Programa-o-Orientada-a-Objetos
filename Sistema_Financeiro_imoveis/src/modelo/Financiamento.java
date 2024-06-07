@@ -85,12 +85,10 @@ public class Financiamento {
         @Override
         public double PagamentoMensal() {
             double taxaMensal = getTaxaJurosAnual() / 12.0;
-            double Meses = getPrazoFinanciamento() * 12;
-            double valorTotal = (((getValorimovel() * (Math.pow(1 + taxaMensal, Meses))) * taxaMensal)
-                    / (Math.pow(1 + taxaMensal, Meses - 1)));
-            return valorTotal;
+            double Meses = getPrazoFinanciamento() * 12.0;
+            double valorTotal = (getValorimovel() * (Math.pow(1 + taxaMensal, Meses)));
+            return valorTotal / (Math.pow(1 + taxaMensal, Meses - 1));
         }
-
     }
 
     public static class Terreno extends Financiamento {

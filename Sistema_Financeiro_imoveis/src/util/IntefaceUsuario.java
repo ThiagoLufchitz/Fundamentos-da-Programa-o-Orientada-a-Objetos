@@ -17,7 +17,7 @@ public class IntefaceUsuario {
     public int TipoImovel() {
         while (true) {
             try {
-                System.out.println("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2) e Casa(3) ?");
+                System.out.print("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2) e Casa(3) ?");
                 int tipo = sc.nextInt();
                 if (tipo >= 1 && tipo <= 3) {
                     return tipo;

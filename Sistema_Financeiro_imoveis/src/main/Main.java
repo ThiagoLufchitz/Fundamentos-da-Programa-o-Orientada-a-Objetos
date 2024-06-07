@@ -18,7 +18,7 @@ public class Main {
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 
         // Solicitando quato imoveis para o usuario
-        for (int i = 1; i <= 4; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Digite os Dados do " + i + "° Imovel :");
             int tipoImovel = intefaceUsuario.TipoImovel();
             double ValorImovel = intefaceUsuario.ValorImovel();
