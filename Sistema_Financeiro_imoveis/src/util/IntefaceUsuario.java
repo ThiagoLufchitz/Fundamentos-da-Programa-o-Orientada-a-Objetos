@@ -15,8 +15,8 @@ public class IntefaceUsuario {
     // Metodo para obter o tipo do imovel a ser financiado
     // public double TipoImovel() {
     // while (true) {
-    // System.out.println("O Imovel a ser Financiado é: Terreno(1) ou casa/ap(2) ?
-    // ");
+    // System.out.println("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2)
+    // e Casa(3) ?");
     // int tipo = Integer.parseInt(sc.nextLine());
     // if (tipo > 0) {
     // return tipo;

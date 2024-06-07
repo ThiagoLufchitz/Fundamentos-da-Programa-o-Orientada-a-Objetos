@@ -13,16 +13,16 @@ public class Main {
         double TotaldoImovel = 0;
         double TotaldoFinanciamentos = 0;
 
-        IntefaceUsuario interaceUsuario = new IntefaceUsuario();
+        IntefaceUsuario intefaceUsuario = new IntefaceUsuario();
 
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 
         // Solicitando quato imoveis para o usuario
         for (int i = 1; i <= 4; i++) {
             System.out.println("Digite os Dados do " + i + "° Imovel :");
-            double ValorImovel = interaceUsuario.ValorImovel();
-            int prazoFinanciamento = interaceUsuario.PrazoFinanciamento();
-            double taxaJurosAnual = interaceUsuario.TaxaJurosAnual();
+            double ValorImovel = intefaceUsuario.ValorImovel();
+            int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();
+            double taxaJurosAnual = intefaceUsuario.TaxaJurosAnual();
             System.out.print("----------------");
             Financiamento financiamento = new Financiamento(ValorImovel, prazoFinanciamento, taxaJurosAnual);
             financiamentos.add(financiamento);
