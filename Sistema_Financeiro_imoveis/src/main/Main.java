@@ -20,11 +20,30 @@ public class Main {
         // Solicitando quato imoveis para o usuario
         for (int i = 1; i <= 4; i++) {
             System.out.println("Digite os Dados do " + i + "° Imovel :");
+            int tipoImovel = intefaceUsuario.TipoImovel();
             double ValorImovel = intefaceUsuario.ValorImovel();
             int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();
             double taxaJurosAnual = intefaceUsuario.TaxaJurosAnual();
             System.out.print("----------------");
-            Financiamento financiamento = new Financiamento(ValorImovel, prazoFinanciamento, taxaJurosAnual);
+            Financiamento financiamento;
+            switch (tipoImovel) {
+                case 1:
+                    financiamento = new Financiamento.Terreno(ValorImovel, prazoFinanciamento,
+                            taxaJurosAnual);
+                    break;
+                case 2:
+                    financiamento = new Financiamento.Apartamento(ValorImovel, prazoFinanciamento,
+                            taxaJurosAnual);
+                    break;
+                case 3:
+                    financiamento = new Financiamento.Casa(ValorImovel, prazoFinanciamento,
+                            taxaJurosAnual);
+                    break;
+                default:
+                    System.out.println("Tipo de imóvel inválido.");
+                    return;
+            }
+
             financiamentos.add(financiamento);
             System.out.println();
         }

@@ -12,29 +12,41 @@ public class IntefaceUsuario {
     public IntefaceUsuario() {
         sc = new Scanner(System.in);
     }
+
     // Metodo para obter o tipo do imovel a ser financiado
-    // public double TipoImovel() {
-    // while (true) {
-    // System.out.println("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2)
-    // e Casa(3) ?");
-    // int tipo = Integer.parseInt(sc.nextLine());
-    // if (tipo > 0) {
-    // return tipo;
-    // }
-    // System.out.println("Valor Incorreto Digite novamente!");
-    // }
-    // }
+    public int TipoImovel() {
+        while (true) {
+            try {
+                System.out.println("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2) e Casa(3) ?");
+                int tipo = sc.nextInt();
+                if (tipo >= 1 && tipo <= 3) {
+                    return tipo;
+                }
+                System.out.println("Valor Incorreto Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+
+        }
+    }
 
     // Metodo para obter o valor do imovel e verificar se é uma valor valido
     public double ValorImovel() {
-        double valorimo;
+        double valorImovel;
         while (true) {
-            System.out.print("Digite o valor do Imovel? ");
-            valorimo = sc.nextDouble();
-            if (valorimo > 50000) {
-                return valorimo;
+            try {
+                System.out.print("Digite o valor do Imovel? ");
+                valorImovel = sc.nextDouble();
+                if (valorImovel > 50000) {
+                    return valorImovel;
+                }
+                System.out.println("Valor Incorreto Digite, novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
             }
-            System.out.println("Valor Incorreto Digite, novamente!");
+
         }
     }
 
@@ -43,12 +55,18 @@ public class IntefaceUsuario {
     public int PrazoFinanciamento() {
         int prazo;
         while (true) {
-            System.out.print("Digite o valor do Prazo Financiado? ");
-            prazo = sc.nextInt();
-            if (prazo > 1 && prazo <= 35) {
-                return prazo;
+            try {
+                System.out.print("Digite o valor do Prazo Financiado? ");
+                prazo = sc.nextInt();
+                if (prazo > 1 && prazo <= 35) {
+                    return prazo;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!(Entre 1 a 35 anos)");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
             }
-            System.out.println("Valor Incorreto !! Digite novamente!(Entre 1 a 35 anos)");
+
         }
     }
 
@@ -59,12 +77,18 @@ public class IntefaceUsuario {
     public double TaxaJurosAnual() {
         double taxa;
         while (true) {
-            System.out.print("Digite o valor da Taxa de Juros Anual? ");
-            taxa = sc.nextDouble();
-            if (taxa >= 1 && taxa <= 12) {
-                return taxa;
+            try {
+                System.out.print("Digite o valor da Taxa de Juros Anual? ");
+                taxa = sc.nextDouble();
+                if (taxa >= 1 && taxa <= 12) {
+                    return taxa;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!(Entre 0.1% a 12%)");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
             }
-            System.out.println("Valor Incorreto !! Digite novamente!(Entre 0.1% a 12%)");
+
         }
     }
 
