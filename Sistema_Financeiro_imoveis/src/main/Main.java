@@ -10,6 +10,9 @@ import util.InteraceUsuario;
 
 public class Main {
     public static void main(String[] args) {
+        double TotaldoImovel = 0;
+        double TotaldoFinanciamentos = 0;
+
         InteraceUsuario interaceUsuario = new InteraceUsuario();
 
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
@@ -26,25 +29,21 @@ public class Main {
             System.out.println();
         }
 
-        double TotaldoImovel = 0;
-        double TotaldoFinanciamentos = 0;
-
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
             TotaldoImovel += financiamento.getValorimovel();
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
             System.out.printf(
-                    "Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f.%n",
+                    "Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f",
                     (i + 1), financiamento.getValorimovel(), financiamento.TotaldoPagamento());
             // System.out.println("Dados do " + (i + 1) + "° Imovel :");
             // financiamento.ShowDadosImovel();
             System.out.println();
         }
 
-        System.out.printf("Total de todos os imóveis: R$ %.2f%n", TotaldoImovel);
-        System.out.printf("Total de todos os financiamentos: R$ %.2f%n", TotaldoFinanciamentos);
-
+        System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.2f%n",
+                TotaldoImovel, TotaldoFinanciamentos);
     }
 
 }

@@ -29,9 +29,9 @@ public class InteraceUsuario {
     public double ValorImovel() {
         double valorimo;
         while (true) {
-            System.out.println("Digite o valor do Imovel? ");
+            System.out.print("Digite o valor do Imovel? ");
             valorimo = sc.nextDouble();
-            if (valorimo > 0) {
+            if (valorimo > 50000) {
                 return valorimo;
             }
             System.out.println("Valor Incorreto Digite, novamente!");
@@ -43,12 +43,12 @@ public class InteraceUsuario {
     public int PrazoFinanciamento() {
         int prazo;
         while (true) {
-            System.out.println("Digite o valor do Prazo Financiado? ");
+            System.out.print("Digite o valor do Prazo Financiado? ");
             prazo = sc.nextInt();
-            if (prazo > 0) {
+            if (prazo > 1 && prazo <= 35) {
                 return prazo;
             }
-            System.out.println("Valor Incorreto Digite novamente!");
+            System.out.println("Valor Incorreto !! Digite novamente!(Entre 1 a 35 anos)");
         }
     }
 
@@ -59,12 +59,12 @@ public class InteraceUsuario {
     public double TaxaJurosAnual() {
         double taxa;
         while (true) {
-            System.out.println("Digite o valor da Taxa de Juros Anual? ");
+            System.out.print("Digite o valor da Taxa de Juros Anual? ");
             taxa = sc.nextDouble();
             if (taxa >= 1 && taxa <= 12) {
                 return taxa;
             }
-            System.out.println("Valor Incorreto Digite novamente!(Entre 1% a 12%)");
+            System.out.println("Valor Incorreto !! Digite novamente!(Entre 0.1% a 12%)");
         }
     }
 
