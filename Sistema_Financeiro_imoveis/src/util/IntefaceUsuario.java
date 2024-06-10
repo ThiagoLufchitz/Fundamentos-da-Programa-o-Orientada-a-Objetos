@@ -13,6 +13,12 @@ public class IntefaceUsuario {
         sc = new Scanner(System.in);
     }
 
+    // Método para solicitar a quantidade de imóveis ao usuário
+    public int qtdImoveis() {
+        System.out.println("Digite a quantidade de imóveis que deseja financiar:");
+        return sc.nextInt();
+    }
+
     // Metodo para obter o tipo do imovel a ser financiado
     public int TipoImovel() {
         while (true) {

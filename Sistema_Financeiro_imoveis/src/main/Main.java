@@ -17,8 +17,10 @@ public class Main {
 
         ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
 
+        int nImoveis = intefaceUsuario.qtdImoveis();
+
         // Solicitando quato imoveis para o usuario
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 1; i <= nImoveis; i++) {
             System.out.println("Digite os Dados do " + i + "° Imovel :");
             int tipoImovel = intefaceUsuario.TipoImovel();
             double ValorImovel = intefaceUsuario.ValorImovel();
@@ -45,19 +47,16 @@ public class Main {
             }
 
             financiamentos.add(financiamento);
+            TotaldoImovel += financiamento.getValorImovel();
+            TotaldoFinanciamentos += financiamento.TotaldoPagamento();
             System.out.println();
         }
 
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
-            TotaldoImovel += financiamento.getValorImovel();
-            TotaldoFinanciamentos += financiamento.TotaldoPagamento();
-            System.out.printf(
-                    "Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f",
+            System.out.printf("Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f",
                     (i + 1), financiamento.getValorImovel(), financiamento.TotaldoPagamento());
-            // System.out.println("Dados do " + (i + 1) + "° Imovel :");
-            // financiamento.ShowDadosImovel();
             System.out.println();
         }
 
