@@ -5,7 +5,7 @@ package main;
 
 import java.util.ArrayList;
 
-import modelo.Financiamento;
+import modelo.*;
 import util.IntefaceUsuario;
 
 public class Main {
@@ -18,7 +18,7 @@ public class Main {
         ArrayList<Financiamento> financiamentos = new ArrayList<>();
 
         // Solicitando quato imoveis para o usuario
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 3; i++) {
             System.out.println("Digite os Dados do " + i + "° Imovel :");
             int tipoImovel = intefaceUsuario.TipoImovel();
             double ValorImovel = intefaceUsuario.ValorImovel();
@@ -28,15 +28,15 @@ public class Main {
             Financiamento financiamento;
             switch (tipoImovel) {
                 case 1:
-                    financiamento = new Financiamento.Terreno(ValorImovel, prazoFinanciamento,
+                    financiamento = new Terreno(ValorImovel, prazoFinanciamento,
                             taxaJurosAnual);
                     break;
                 case 2:
-                    financiamento = new Financiamento.Apartamento(ValorImovel, prazoFinanciamento,
+                    financiamento = new Apartamento(ValorImovel, prazoFinanciamento,
                             taxaJurosAnual);
                     break;
                 case 3:
-                    financiamento = new Financiamento.Casa(ValorImovel, prazoFinanciamento,
+                    financiamento = new Casa(ValorImovel, prazoFinanciamento,
                             taxaJurosAnual);
                     break;
                 default:
