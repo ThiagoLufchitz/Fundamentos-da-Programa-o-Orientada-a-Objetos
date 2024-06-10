@@ -56,12 +56,12 @@ public class Main {
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
-            System.out.printf("Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f",
+            System.out.printf("Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.3f",
                     (i + 1), financiamento.getValorImovel(), financiamento.TotaldoPagamento());
             System.out.println();
         }
 
-        System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.2f%n",
+        System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
                 TotaldoImovel, TotaldoFinanciamentos);
     }
 
