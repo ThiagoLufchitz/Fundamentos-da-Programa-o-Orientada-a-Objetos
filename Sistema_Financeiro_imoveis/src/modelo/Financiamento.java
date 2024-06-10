@@ -3,7 +3,7 @@
  */
 package modelo;
 
-public class Financiamento {
+public abstract class Financiamento {
     // Atributos privados
     private double valorimovel;
     private int prazoFinanciamento;
@@ -47,24 +47,12 @@ public class Financiamento {
     // }
 
     // Metodo para calcular o pagamento mensal
-    public double PagamentoMensal() {
-        int prazoMensal = prazoFinanciamento;
-        double taxaMensal = taxaJurosAnual;
-        return (valorimovel / (prazoMensal * 12)) * (1 + (taxaMensal / 12 / 100));
-    }
-
-    // Metodo para calcular o total a ser pago
-    public double TotaldoPagamento() {
-        return PagamentoMensal() * (prazoFinanciamento * 12);
-    }
-
-    public void ShowDadosImovel() {
-        System.out.printf("Valor do Imóvel: R$ %.2f%n", valorimovel);
-        System.out.printf("Prazo do Financiamento: %d anos%n", prazoFinanciamento);
-        System.out.printf("Taxa de Juros Anual: %.2f%%%n", taxaJurosAnual);
-        System.out.printf("Pagamento Mensal: R$ %.2f%n", PagamentoMensal());
-        System.out.printf("Total do Pagamento: R$ %.2f%n", TotaldoPagamento());
-    }
+    public abstract double PagamentoMensal();
+    // {
+    // int prazoMensal = prazoFinanciamento;
+    // double taxaMensal = taxaJurosAnual;
+    // return (valorimovel / (prazoMensal * 12)) * (1 + (taxaMensal / 12 / 100));
+    // }
 
     public static class Casa extends Financiamento {
         public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
@@ -73,7 +61,7 @@ public class Financiamento {
 
         @Override
         public double PagamentoMensal() {
-            return super.PagamentoMensal() + 80;
+            return (getValorimovel() / (getPrazoFinanciamento() * 12)) * (1 + (getTaxaJurosAnual() / 12)) + 80;
         }
     }
 
@@ -85,9 +73,13 @@ public class Financiamento {
         @Override
         public double PagamentoMensal() {
             double taxaMensal = getTaxaJurosAnual() / 12.0;
-            double Meses = getPrazoFinanciamento() * 12.0;
-            double valorTotal = (getValorimovel() * (Math.pow(1 + taxaMensal, Meses)));
-            return valorTotal / (Math.pow(1 + taxaMensal, Meses - 1));
+            // int meses = getPrazoFinanciamento() * 12;
+            System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
+            System.out.printf("Meses : %d\n", getPrazoFinanciamento());
+            double valorcima = getValorimovel() * Math.pow(1 + taxaMensal, (double) getPrazoFinanciamento() * 12);
+            double valorbaixo = Math.pow(1 + taxaMensal, ((double) getPrazoFinanciamento() * 12) - 1);
+            System.out.printf("Valor Parcial: %.2f\n", valorcima / valorbaixo);
+            return valorcima / valorbaixo;
         }
     }
 
@@ -98,9 +90,24 @@ public class Financiamento {
 
         @Override
         public double PagamentoMensal() {
-            return super.PagamentoMensal() * 1.02;
+            double pagamentoMensal = (getValorimovel() / (getPrazoFinanciamento() * 12))
+                    * (1 + (getTaxaJurosAnual() / 12));
+            return pagamentoMensal * 1.02;
         }
 
+    }
+
+    // Metodo para calcular o total a ser pago
+    public double TotaldoPagamento() {
+        return PagamentoMensal() * (prazoFinanciamento * 12);
+    }
+
+    public void ShowDadosImovel() {
+        System.out.printf("Valor do Imóvel: R$ %.2f\n", valorimovel);
+        System.out.printf("Prazo do Financiamento: %d anos\n", prazoFinanciamento);
+        System.out.printf("Taxa de Juros Anual: %.2f\nn", taxaJurosAnual);
+        System.out.printf("Pagamento Mensal: R$ %.2f\n", PagamentoMensal());
+        System.out.printf("Total do Pagamento: R$ %.2f\n", TotaldoPagamento());
     }
 
 }
