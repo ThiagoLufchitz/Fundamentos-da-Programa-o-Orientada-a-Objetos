@@ -14,9 +14,9 @@ public class Apartamento extends Financiamento {
         int meses = getPrazoFinanciamento() * 12;
         System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
         System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-        double valorcima = getValorimovel() * Math.pow(1 + taxaMensal, meses);
-        double valorbaixo = Math.pow(1 + taxaMensal, meses - 1.0);
-        System.out.printf("Valor Parcial: %.2f\n", valorcima / valorbaixo);
-        return valorcima / valorbaixo;
+        double amortizacao = getValorImovel() / meses;
+        System.out.printf("Valor Amortizado: %.2f\n", amortizacao);
+        double pagamentoMensal = amortizacao * (taxaMensal / (1 - Math.pow(1 + taxaMensal, -meses)));
+        return pagamentoMensal;
     }
 }

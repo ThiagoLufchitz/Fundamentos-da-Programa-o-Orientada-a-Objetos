@@ -25,7 +25,7 @@ public class Main {
             int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();
             double taxaJurosAnual = intefaceUsuario.TaxaJurosAnual();
             System.out.print("----------------");
-            Financiamento financiamento;
+            Financiamento financiamento = null;
             switch (tipoImovel) {
                 case 1:
                     financiamento = new Terreno(ValorImovel, prazoFinanciamento,
@@ -51,11 +51,11 @@ public class Main {
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
-            TotaldoImovel += financiamento.getValorimovel();
+            TotaldoImovel += financiamento.getValorImovel();
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
             System.out.printf(
                     "Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.2f",
-                    (i + 1), financiamento.getValorimovel(), financiamento.TotaldoPagamento());
+                    (i + 1), financiamento.getValorImovel(), financiamento.TotaldoPagamento());
             // System.out.println("Dados do " + (i + 1) + "° Imovel :");
             // financiamento.ShowDadosImovel();
             System.out.println();

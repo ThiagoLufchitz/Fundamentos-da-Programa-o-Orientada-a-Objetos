@@ -5,20 +5,20 @@ package modelo;
 
 public abstract class Financiamento {
     // Atributos privados
-    private double valorimovel;
+    private double valorImovel;
     private int prazoFinanciamento;
     private double taxaJurosAnual;
 
     // Metodo Construtor da class
-    public Financiamento(double valorimovel, int prazoFinanciamento, double taxaJurosAnual) {
-        this.valorimovel = valorimovel;
+    public Financiamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
+        this.valorImovel = valorImovel;
         this.prazoFinanciamento = prazoFinanciamento;
         this.taxaJurosAnual = taxaJurosAnual;
     }
 
     // get do valor do imovel
-    public double getValorimovel() {
-        return valorimovel;
+    public double getValorImovel() {
+        return valorImovel;
     }
 
     // get do prazo financiado
@@ -39,22 +39,22 @@ public abstract class Financiamento {
     // return (valorimovel / (prazoMensal * 12)) * (1 + (taxaMensal / 12 / 100));
     // }
 
-    public static class Casa extends Financiamento {
-        public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
-            super(valorimovel, prazoMensal, taxaJurosAnual);
-        }
+    // public static class Casa extends Financiamento {
+    // public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+    // super(valorimovel, prazoMensal, taxaJurosAnual);
+    // }
 
-        @Override
-        public double PagamentoMensal() {
-            double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
-            int meses = getPrazoFinanciamento() * 12;
-            System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
-            System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-            double pagamentoMensal = (getValorimovel() / meses) * (1 + taxaMensal) + 80;
-            System.out.printf("Valor Parcial: %.2f\n", pagamentoMensal);
-            return pagamentoMensal;
-        }
-    }
+    // @Override
+    // public double PagamentoMensal() {
+    // double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
+    // int meses = getPrazoFinanciamento() * 12;
+    // System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
+    // System.out.printf("Meses : %d\n", getPrazoFinanciamento());
+    // double pagamentoMensal = (getValorimovel() / meses) * (1 + taxaMensal) + 80;
+    // System.out.printf("Valor Parcial: %.2f\n", pagamentoMensal);
+    // return pagamentoMensal;
+    // }
+    // }
 
     // public static class Apartamento extends Financiamento {
     // public Apartamento(double valorimovel, int prazoMensal, double
@@ -99,7 +99,7 @@ public abstract class Financiamento {
     }
 
     public void ShowDadosImovel() {
-        System.out.printf("Valor do Imóvel: R$ %.2f\n", valorimovel);
+        System.out.printf("Valor do Imóvel: R$ %.2f\n", valorImovel);
         System.out.printf("Prazo do Financiamento: %d anos\n", prazoFinanciamento);
         System.out.printf("Taxa de Juros Anual: %.2f\nn", taxaJurosAnual);
         System.out.printf("Pagamento Mensal: R$ %.2f\n", PagamentoMensal());
