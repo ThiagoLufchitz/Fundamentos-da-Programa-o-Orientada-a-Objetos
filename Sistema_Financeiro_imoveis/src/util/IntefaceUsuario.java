@@ -15,7 +15,7 @@ public class IntefaceUsuario {
 
     // Método para solicitar a quantidade de imóveis ao usuário
     public int qtdImoveis() {
-        System.out.println("Digite a quantidade de imóveis que deseja financiar:");
+        System.out.printf("Digite a quantidade de imóveis que deseja financiar:");
         return sc.nextInt();
     }
 

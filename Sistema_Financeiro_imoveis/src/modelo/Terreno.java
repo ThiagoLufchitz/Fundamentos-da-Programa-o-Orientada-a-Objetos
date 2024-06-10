@@ -14,7 +14,8 @@ public class Terreno extends Financiamento {
         int meses = getPrazoFinanciamento() * 12;
         System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
         System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-        double pagamentoMensal = ((getValorImovel() / meses) * (1 + taxaMensal)) * 1.02;
+        double amortizacao = getValorImovel() / meses;
+        double pagamentoMensal = (amortizacao * (1 + taxaMensal)) * 1.02;
         System.out.printf("Valor Parcial: %.2f\n", pagamentoMensal);
         return pagamentoMensal;
     }

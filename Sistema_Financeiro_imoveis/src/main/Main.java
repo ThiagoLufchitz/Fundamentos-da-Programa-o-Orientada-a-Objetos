@@ -27,6 +27,7 @@ public class Main {
             int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();
             double taxaJurosAnual = intefaceUsuario.TaxaJurosAnual();
             System.out.print("----------------");
+            System.out.println();
             Financiamento financiamento = null;
             switch (tipoImovel) {
                 case 1:
@@ -49,7 +50,7 @@ public class Main {
             financiamentos.add(financiamento);
             TotaldoImovel += financiamento.getValorImovel();
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
-            System.out.println();
+
         }
 
         // Pegando os valores fornecidos

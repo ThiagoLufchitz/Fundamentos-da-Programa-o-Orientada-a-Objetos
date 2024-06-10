@@ -16,7 +16,8 @@ public class Apartamento extends Financiamento {
         System.out.printf("Meses : %d\n", getPrazoFinanciamento());
         double amortizacao = getValorImovel() / meses;
         System.out.printf("Valor Amortizado: %.2f\n", amortizacao);
-        double pagamentoMensal = amortizacao * (taxaMensal / (1 - Math.pow(1 + taxaMensal, -meses)));
+        double pagamentoMensal = Math.pow(1 + taxaMensal, meses) / ((1 + Math.pow(1 + taxaMensal, meses)) - 1);
+        // (500000 * (1+(0,10/12))^(10*12))/((1+(0,10/12))^(10*12) - 1) = 6607,537
         return pagamentoMensal;
     }
 }
