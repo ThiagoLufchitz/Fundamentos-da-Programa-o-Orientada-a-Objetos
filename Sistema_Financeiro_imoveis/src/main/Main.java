@@ -15,7 +15,7 @@ public class Main {
 
         IntefaceUsuario intefaceUsuario = new IntefaceUsuario();
 
-        ArrayList<Financiamento> financiamentos = new ArrayList<>();
+        ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
 
         // Solicitando quato imoveis para o usuario
         for (int i = 1; i <= 3; i++) {

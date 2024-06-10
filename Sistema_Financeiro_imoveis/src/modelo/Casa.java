@@ -1,3 +1,6 @@
+/*Aluno modeloo Dorfman Lufchitz
+ *Materia :  Fundamentos da Programação Orientada a Objetos
+ */
 package modelo;
 
 public class Casa extends Financiamento {
