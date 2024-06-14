@@ -4,8 +4,14 @@
 package modelo;
 
 public class Casa extends Financiamento {
-    public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+    private double TamAreaConstruida;
+    private double TamTerreno;
+
+    public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual, double TamAreaConstruida,
+            double TamTerreno) {
         super(valorimovel, prazoMensal, taxaJurosAnual);
+        this.TamAreaConstruida = TamAreaConstruida;
+        this.TamTerreno = TamTerreno;
     }
 
     @Override
@@ -18,5 +24,12 @@ public class Casa extends Financiamento {
         double pagamentoMensal = (amortizacao * (1 + taxaMensal)) + 80;
         System.out.printf("Valor Parcial: %.3f\n", pagamentoMensal);
         return pagamentoMensal;
+    }
+
+    @Override
+    public void ShowDadosImovel() {
+        super.ShowDadosImovel();
+        System.out.printf("Tamanho da Área Construida: %.2f m²\n", TamAreaConstruida);
+        System.out.printf("Tamanho do Terreno: %.f m²\n", TamTerreno);
     }
 }

@@ -76,7 +76,7 @@ public class IntefaceUsuario {
         }
     }
 
-    // metodo publico e obtem os valores da taxa de juros anula e verifica se é
+    // metodo que obtem os valores da taxa de juros anula e verifica se é
     // maior que 12%
     // Taxa de juros anual de terreno max 12%,para casa e apartamento 11,5%.
     // valor aceitos pelo programa
@@ -98,4 +98,91 @@ public class IntefaceUsuario {
         }
     }
 
+    // Metodo para Obter o tamanho da area construida e verificar se o numero nao e
+    // negativo
+    public double TamAreaConstruida() {
+        double area;
+        while (true) {
+            try {
+                System.out.println("Digite o Tamanho da Área Contruida? ");
+                area = sc.nextDouble();
+                if (area > 0) {
+                    return area;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+        }
+    }
+
+    public double TamTerreno() {
+        double terreno;
+        while (true) {
+            try {
+                System.out.println("Digite o Tamanho do Terreno? ");
+                terreno = sc.nextDouble();
+                if (terreno > 0) {
+                    return terreno;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+        }
+    }
+
+    public int NumVagasGaragem() {
+        int vaga;
+        while (true) {
+            try {
+                System.out.println("Digite o Número de Vagas na Garagem? ");
+                vaga = sc.nextInt();
+                if (vaga > 0) {
+                    return vaga;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+        }
+    }
+
+    public int NumAndar() {
+        int andar;
+        while (true) {
+            try {
+                System.out.println("Digite o Número do Andar? ");
+                andar = sc.nextInt();
+                if (andar > 0) {
+                    return andar;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+        }
+    }
+
+    public String TipoZona() {
+
+        String tipo;
+        while (true) {
+            try {
+                System.out.print("Digite o Tipo da Zona da Casa (Residencial/Comercial): ");
+                tipo = sc.next();
+                if (tipo == "R" && tipo == "C") {
+                    return tipo;
+                }
+                System.out.println("Valor Incorreto !! Digite novamente!");
+            } catch (Exception e) {
+                System.out.println("Entrada Incorreta !! Digite novamente.");
+                sc.next();
+            }
+        }
+    }
 }

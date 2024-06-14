@@ -4,8 +4,14 @@
 package modelo;
 
 public class Apartamento extends Financiamento {
-    public Apartamento(double valorimovel, int prazoMensal, double taxaJurosAnual) {
+    private int NumVagasGaragem;
+    private int NumAndar;
+
+    public Apartamento(double valorimovel, int prazoMensal, double taxaJurosAnual, int NumVagasGaragem,
+            int NumAndar) {
         super(valorimovel, prazoMensal, taxaJurosAnual);
+        this.NumVagasGaragem = NumVagasGaragem;
+        this.NumAndar = NumAndar;
     }
 
     @Override
@@ -19,5 +25,12 @@ public class Apartamento extends Financiamento {
         double pagamentoTotal = getValorImovel() * pagamentoParcial;
         System.out.printf("Valor Parcial: %.3f\n", pagamentoTotal);
         return pagamentoTotal;
+    }
+
+    @Override
+    public void ShowDadosImovel() {
+        super.ShowDadosImovel();
+        System.out.printf("Numero de Vagas na Garagem: %d\n", NumVagasGaragem);
+        System.out.printf("Numero do Andar do Apartamento: %d\n", NumAndar);
     }
 }

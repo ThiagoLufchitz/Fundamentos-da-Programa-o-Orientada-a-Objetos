@@ -39,60 +39,6 @@ public abstract class Financiamento {
     // return (valorimovel / (prazoMensal * 12)) * (1 + (taxaMensal / 12 / 100));
     // }
 
-    // public static class Casa extends Financiamento {
-    // public Casa(double valorimovel, int prazoMensal, double taxaJurosAnual) {
-    // super(valorimovel, prazoMensal, taxaJurosAnual);
-    // }
-
-    // @Override
-    // public double PagamentoMensal() {
-    // double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
-    // int meses = getPrazoFinanciamento() * 12;
-    // System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
-    // System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-    // double pagamentoMensal = (getValorimovel() / meses) * (1 + taxaMensal) + 80;
-    // System.out.printf("Valor Parcial: %.2f\n", pagamentoMensal);
-    // return pagamentoMensal;
-    // }
-    // }
-
-    // public static class Apartamento extends Financiamento {
-    // public Apartamento(double valorimovel, int prazoMensal, double
-    // taxaJurosAnual) {
-    // super(valorimovel, prazoMensal, taxaJurosAnual);
-    // }
-
-    // @Override
-    // public double PagamentoMensal() {
-    // double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
-    // int meses = getPrazoFinanciamento() * 12;
-    // System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
-    // System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-    // double valorcima = getValorimovel() * Math.pow(1 + taxaMensal, meses);
-    // double valorbaixo = Math.pow(1 + taxaMensal, meses - 1.0);
-    // System.out.printf("Valor Parcial: %.2f\n", valorcima / valorbaixo);
-    // return valorcima / valorbaixo;
-    // }
-    // }
-
-    // public static class Terreno extends Financiamento {
-    // public Terreno(double valorimovel, int prazoMensal, double taxaJurosAnual) {
-    // super(valorimovel, prazoMensal, taxaJurosAnual);
-    // }
-
-    // @Override
-    // public double PagamentoMensal() {
-    // double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
-    // int meses = getPrazoFinanciamento() * 12;
-    // System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
-    // System.out.printf("Meses : %d\n", getPrazoFinanciamento());
-    // double pagamentoMensal = ((getValorimovel() / meses) * taxaMensal) * 1.02;
-    // System.out.printf("Valor Parcial: %.2f\n", pagamentoMensal);
-    // return pagamentoMensal;
-    // }
-
-    // }
-
     // Metodo para calcular o total a ser pago
     public double TotaldoPagamento() {
         return PagamentoMensal() * (prazoFinanciamento * 12);

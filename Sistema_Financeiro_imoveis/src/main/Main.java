@@ -31,16 +31,21 @@ public class Main {
             Financiamento financiamento = null;
             switch (tipoImovel) {
                 case 1:
+                    String TipoZona = intefaceUsuario.TipoZona();
                     financiamento = new Terreno(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual);
+                            taxaJurosAnual, TipoZona);
                     break;
                 case 2:
+                    int NumVagasGaragem = intefaceUsuario.NumVagasGaragem();
+                    int NumAndar = intefaceUsuario.NumAndar();
                     financiamento = new Apartamento(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual);
+                            taxaJurosAnual, NumVagasGaragem, NumAndar);
                     break;
                 case 3:
+                    double TamAreaConstruida = intefaceUsuario.TamAreaConstruida();
+                    double TamTerreno = intefaceUsuario.TamTerreno();
                     financiamento = new Casa(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual);
+                            taxaJurosAnual, TamAreaConstruida, TamTerreno);
                     break;
                 default:
                     System.out.println("Tipo de imóvel inválido.");
@@ -59,6 +64,7 @@ public class Main {
             System.out.printf("Financiamento do Imovel %d - valor do imóvel: R$ %.2f, valor do financiamento: R$ %.3f",
                     (i + 1), financiamento.getValorImovel(), financiamento.TotaldoPagamento());
             System.out.println();
+            financiamento.ShowDadosImovel();
         }
 
         System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
