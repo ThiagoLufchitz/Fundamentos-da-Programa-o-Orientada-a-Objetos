@@ -14,6 +14,7 @@ public class Casa extends Financiamento {
         this.TamTerreno = TamTerreno;
     }
 
+    // Sob Escrevendo a função de Financiamento
     @Override
     public double PagamentoMensal() {
         double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
