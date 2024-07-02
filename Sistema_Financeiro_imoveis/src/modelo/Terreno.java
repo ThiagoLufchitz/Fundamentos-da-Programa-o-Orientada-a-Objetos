@@ -11,6 +11,7 @@ public class Terreno extends Financiamento {
         this.TipoZona = TipoZona;
     }
 
+    // Sob Escrevendo a função de Financiamento
     @Override
     public double PagamentoMensal() {
         double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
@@ -23,6 +24,7 @@ public class Terreno extends Financiamento {
         return pagamentoMensal;
     }
 
+    // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
         super.ShowDadosImovel();

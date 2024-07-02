@@ -14,6 +14,7 @@ public class Apartamento extends Financiamento {
         this.NumAndar = NumAndar;
     }
 
+    // Sob Escrevendo a função de Financiamento
     @Override
     public double PagamentoMensal() {
         double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
@@ -27,6 +28,7 @@ public class Apartamento extends Financiamento {
         return pagamentoTotal;
     }
 
+    // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
         super.ShowDadosImovel();

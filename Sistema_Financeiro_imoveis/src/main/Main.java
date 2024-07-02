@@ -29,6 +29,7 @@ public class Main {
             System.out.print("----------------");
             System.out.println();
             Financiamento financiamento = null;
+            // Selecionando o tipo do imovel
             switch (tipoImovel) {
                 case 1:
                     String TipoZona = intefaceUsuario.TipoZona();
