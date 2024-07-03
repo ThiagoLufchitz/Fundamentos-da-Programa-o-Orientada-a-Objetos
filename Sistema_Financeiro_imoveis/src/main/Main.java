@@ -6,14 +6,14 @@ package main;
 import java.util.ArrayList;
 
 import modelo.*;
-import util.IntefaceUsuario;
+import util.*;
 
 public class Main {
     public static void main(String[] args) {
         double TotaldoImovel = 0;
         double TotaldoFinanciamentos = 0;
 
-        IntefaceUsuario intefaceUsuario = new IntefaceUsuario();
+        IntefacerUsuario intefaceUsuario = new IntefacerUsuario();
 
         ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
 
@@ -21,7 +21,7 @@ public class Main {
 
         // Solicitando quato imoveis para o usuario
         for (int i = 1; i <= nImoveis; i++) {
-            System.out.println("Digite os Dados do " + i + "° Imovel :");
+            System.out.printf("Digite os Dados do &d° Imovel :", i);
             int tipoImovel = intefaceUsuario.TipoImovel();
             double ValorImovel = intefaceUsuario.ValorImovel();
             int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();

@@ -3,6 +3,8 @@
  */
 package modelo;
 
+import modelo.Excecoes.DescontoMaiorDoQueJurosException;
+
 public class Casa extends Financiamento {
     private double TamAreaConstruida;
     private double TamTerreno;
@@ -25,6 +27,14 @@ public class Casa extends Financiamento {
         double pagamentoMensal = (amortizacao * (1 + taxaMensal)) + 80;
         System.out.printf("Valor Parcial: %.3f\n", pagamentoMensal);
         return pagamentoMensal;
+    }
+
+    public void AplicarDesconto(double desconto) throws DescontoMaiorDoQueJurosException {
+        double juroMensal = PagamentoMensal() * (getPrazoFinanciamento() * 12);
+
+        if (desconto > juroMensal) {
+            throw new DescontoMaiorDoQueJurosException("O desconto não pode ser maior que os juros do financiamento.");
+        }
     }
 
     // Sob Escrevendo a função de print

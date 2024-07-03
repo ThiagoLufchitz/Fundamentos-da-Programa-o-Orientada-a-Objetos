@@ -4,61 +4,62 @@
 package util;
 
 import java.util.*;
+import modelo.Excecoes.*;
 
-public class IntefaceUsuario {
+public class IntefacerUsuario {
     private Scanner sc;
 
     // metodo que le valores inseridos pelo usuario
-    public IntefaceUsuario() {
+    public IntefacerUsuario() {
         sc = new Scanner(System.in);
     }
 
     // Método para solicitar a quantidade de imóveis ao usuário
-    public int qtdImoveis() {
-        System.out.printf("Digite a quantidade de imóveis que deseja financiar:");
-        return sc.nextInt();
+    public int qtdImoveis() throws EntradaInvalidaException {
+        System.out.print("Digite a quantidade de imóveis que deseja financiar:");
+        try {
+            return sc.nextInt();
+        } catch (Exception e) {
+            throw new EntradaInvalidaException("Entrada inválida. Digite um número inteiro válido.");
+        }
     }
 
     // Metodo para obter o tipo do imovel a ser financiado
-    public int TipoImovel() {
+    public int TipoImovel() throws EntradaInvalidaException {
         while (true) {
             try {
-                System.out.print("O Imovel a ser Financiado é: Terreno(1) , Apartamento(2) e Casa(3) ?");
+                System.out.print("O Imóvel a ser Financiado é: Terreno(1), Apartamento(2) ou Casa(3)? ");
                 int tipo = sc.nextInt();
                 if (tipo >= 1 && tipo <= 3) {
                     return tipo;
                 }
-                System.out.println("Valor Incorreto Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
-                sc.next();
+                throw new EntradaInvalidaException("Valor incorreto. Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada inválida : %.2f . Digite um valor numérico válido. \n", e);
             }
-
         }
     }
 
     // Metodo para obter o valor do imovel e verificar se é uma valor valido
-    public double ValorImovel() {
+    public double ValorImovel() throws EntradaInvalidaException {
         double valorImovel;
         while (true) {
             try {
-                System.out.print("Digite o valor do Imovel? ");
+                System.out.print("Digite o valor do Imóvel: ");
                 valorImovel = sc.nextDouble();
                 if (valorImovel > 50000) {
                     return valorImovel;
                 }
-                System.out.println("Valor Incorreto Digite, novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
-                sc.next();
+                throw new EntradaInvalidaException("Valor incorreto. Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada inválida : %.2f . Digite um valor numérico válido. \n", e);
             }
-
         }
     }
 
     // Metodo publico e obtem os valor de prazo a ser financiado e verifica se sao
     // valores validos
-    public int PrazoFinanciamento() {
+    public int PrazoFinanciamento() throws EntradaInvalidaException {
         int prazo;
         while (true) {
             try {
@@ -67,12 +68,10 @@ public class IntefaceUsuario {
                 if (prazo > 1 && prazo <= 35) {
                     return prazo;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!(Entre 1 a 35 anos)");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
-                sc.next();
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!(Entre 1 a 35 anos)");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada inválida : %.2f . Digite um valor numérico válido. \n", e);
             }
-
         }
     }
 
@@ -80,7 +79,7 @@ public class IntefaceUsuario {
     // maior que 12%
     // Taxa de juros anual de terreno max 12%,para casa e apartamento 11,5%.
     // valor aceitos pelo programa
-    public double TaxaJurosAnual() {
+    public double TaxaJurosAnual() throws EntradaInvalidaException {
         double taxa;
         while (true) {
             try {
@@ -89,10 +88,10 @@ public class IntefaceUsuario {
                 if (taxa >= 1 && taxa <= 12) {
                     return taxa;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!(Entre 0.1% a 12%)");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
-                sc.next();
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!(Entre 0.1% a 12%)");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada inválida : %.2f . Digite um valor numérico válido. \n", e);
+
             }
 
         }
@@ -100,7 +99,7 @@ public class IntefaceUsuario {
 
     // Metodo para Obter o tamanho da area construida e verificar se o numero nao e
     // negativo
-    public double TamAreaConstruida() {
+    public double TamAreaConstruida() throws EntradaInvalidaException {
         double area;
         while (true) {
             try {
@@ -109,15 +108,15 @@ public class IntefaceUsuario {
                 if (area > 0) {
                     return area;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada Incorreta: %.2f !! Digite novamente.\n");
                 sc.next();
             }
         }
     }
 
-    public double TamTerreno() {
+    public double TamTerreno() throws EntradaInvalidaException {
         double terreno;
         while (true) {
             try {
@@ -126,15 +125,15 @@ public class IntefaceUsuario {
                 if (terreno > 0) {
                     return terreno;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada Incorreta: %.2f !! Digite novamente.\n");
                 sc.next();
             }
         }
     }
 
-    public int NumVagasGaragem() {
+    public int NumVagasGaragem() throws EntradaInvalidaException {
         int vaga;
         while (true) {
             try {
@@ -143,15 +142,15 @@ public class IntefaceUsuario {
                 if (vaga > 0) {
                     return vaga;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada Incorreta: %.2f !! Digite novamente.\n");
                 sc.next();
             }
         }
     }
 
-    public int NumAndar() {
+    public int NumAndar() throws EntradaInvalidaException {
         int andar;
         while (true) {
             try {
@@ -160,15 +159,15 @@ public class IntefaceUsuario {
                 if (andar > 0) {
                     return andar;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada Incorreta: %.2f !! Digite novamente.\n");
                 sc.next();
             }
         }
     }
 
-    public String TipoZona() {
+    public String TipoZona() throws EntradaInvalidaException {
 
         String tipo;
         while (true) {
@@ -178,9 +177,9 @@ public class IntefaceUsuario {
                 if (tipo == "R" && tipo == "C") {
                     return tipo;
                 }
-                System.out.println("Valor Incorreto !! Digite novamente!");
-            } catch (Exception e) {
-                System.out.println("Entrada Incorreta !! Digite novamente.");
+                throw new EntradaInvalidaException("Valor Incorreto !! Digite novamente!");
+            } catch (EntradaInvalidaException e) {
+                System.out.printf("Entrada Incorreta: %.2f !! Digite novamente.\n");
                 sc.next();
             }
         }
