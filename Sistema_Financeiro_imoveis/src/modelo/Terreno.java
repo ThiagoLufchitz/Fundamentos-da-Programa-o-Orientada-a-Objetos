@@ -25,8 +25,8 @@ public class Terreno extends Financiamento {
     // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
-        super.ShowDadosImovel();
         System.out.printf("Tipo da Zona: %s\n", TipoZona);
+        super.ShowDadosImovel();
     }
 
 }

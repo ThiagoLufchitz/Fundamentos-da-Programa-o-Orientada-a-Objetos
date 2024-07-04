@@ -47,7 +47,7 @@ public abstract class Financiamento {
     public void ShowDadosImovel() {
         System.out.printf("Valor do Imóvel: R$ %.2f\n", valorImovel);
         System.out.printf("Prazo do Financiamento: %d anos\n", prazoFinanciamento);
-        System.out.printf("Taxa de Juros Anual: %.2f\n", taxaJurosAnual);
+        System.out.printf("Taxa de Juros Anual: %.2f %%\n", taxaJurosAnual);
         System.out.printf("Pagamento Mensal: R$ %.2f\n", PagamentoMensal());
         System.out.printf("Total do Pagamento: R$ %.2f\n", TotaldoPagamento());
     }

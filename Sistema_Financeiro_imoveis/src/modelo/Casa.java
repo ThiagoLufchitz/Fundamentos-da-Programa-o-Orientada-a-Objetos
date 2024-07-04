@@ -37,8 +37,8 @@ public class Casa extends Financiamento {
     // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
-        super.ShowDadosImovel();
         System.out.printf("Tamanho da Área Construida: %.2f m²\n", TamAreaConstruida);
         System.out.printf("Tamanho do Terreno: %.f m²\n", TamTerreno);
+        super.ShowDadosImovel();
     }
 }

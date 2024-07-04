@@ -28,8 +28,8 @@ public class Apartamento extends Financiamento {
     // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
-        super.ShowDadosImovel();
         System.out.printf("Numero de Vagas na Garagem: %d\n", NumVagasGaragem);
         System.out.printf("Numero do Andar do Apartamento: %d\n", NumAndar);
+        super.ShowDadosImovel();
     }
 }

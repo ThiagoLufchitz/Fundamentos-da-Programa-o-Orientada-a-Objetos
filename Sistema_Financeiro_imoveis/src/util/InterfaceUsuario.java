@@ -11,7 +11,7 @@ public class InterfaceUsuario {
 
     // metodo que le valores inseridos pelo usuario
     public InterfaceUsuario() {
-        sc = new Scanner(System.in);
+        sc = new Scanner(System.in).useLocale(Locale.US);
     }
 
     // Método para solicitar a quantidade de imóveis ao usuário
@@ -195,16 +195,17 @@ public class InterfaceUsuario {
         while (true) {
             try {
                 System.out.print("Digite o Tipo da Zona da Casa (Residencial(R)/Comercial(C)): ");
-                tipo = sc.next().toUpperCase();
-                if (tipo.equals("R") || tipo.equals("C")) {
-                    return tipo;
+                tipo = sc.next();
+                if (tipo.toUpperCase().equals("R")) {
+                    return tipo = "Residencial";
+                } else if (tipo.toUpperCase().equals("C")) {
+                    return tipo = "Comercial";
+                } else {
+                    throw new EntradaInvalidaException(
+                            "Valor Incorreto " + tipo + " !! Digite novamente (R = Residencial / C = Comercial)");
                 }
-                throw new EntradaInvalidaException(
-                        "Valor Incorreto " + tipo + "!! Digite novamente!(R = Residencial / C = Comercial)");
             } catch (EntradaInvalidaException e) {
-                String valorIcorreto = sc.next();
-                throw new EntradaInvalidaException(
-                        "Entrada inválida : " + valorIcorreto + ". Digite um valor numérico válido. ");
+                System.out.println(e.getMessage());
             }
         }
     }
