@@ -21,11 +21,8 @@ public class Casa extends Financiamento {
     public double PagamentoMensal() {
         double taxaMensal = (getTaxaJurosAnual() / 100) / 12.0;
         int meses = getPrazoFinanciamento() * 12;
-        System.out.printf("Taxa Mensal : %.2f\n", taxaMensal);
-        System.out.printf("Meses : %d\n", meses);
         double amortizacao = getValorImovel() / meses;
         double pagamentoMensal = (amortizacao * (1 + taxaMensal)) + 80;
-        System.out.printf("Valor Parcial: %.3f\n", pagamentoMensal);
         return pagamentoMensal;
     }
 

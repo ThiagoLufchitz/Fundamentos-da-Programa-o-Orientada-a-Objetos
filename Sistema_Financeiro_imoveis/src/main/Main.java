@@ -146,7 +146,7 @@ public class Main {
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
 
         }
-
+        System.out.print("----------------\n");
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
