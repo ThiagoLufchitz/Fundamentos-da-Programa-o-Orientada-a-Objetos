@@ -3,6 +3,7 @@
  */
 package main;
 
+import java.io.*;
 import java.util.ArrayList;
 
 import modelo.Apartamento;
@@ -32,7 +33,7 @@ public class Main {
             }
         }
 
-        // Solicitando quato imoveis para o usuario
+        // Solicitando quanto imoveis o usuario vai querer financiar
         for (int i = 1; i <= nImoveis; i++) {
             System.out.printf("Digite os Dados do %d° Imovel ->  ", i);
             int tipoImovel = 0;
@@ -74,8 +75,6 @@ public class Main {
                     System.out.println(e.getMessage());
                 }
             }
-            // System.out.print("----------------\n");
-
             Financiamento financiamento = null;
             // Selecionando o tipo do imovel
             switch (tipoImovel) {
@@ -160,6 +159,99 @@ public class Main {
         System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
                 TotaldoImovel, TotaldoFinanciamentos);
 
+        // Salvar os dados no arquivo
+        String DadosTexto = "DadosFinanciamento.txt";
+        CriaArquivo.salvarDados(financiamentos, DadosTexto);
+
+        // // Ler os dados do arquivo
+        // System.out.println("--------- Dados Lidos do Arquivo ---------");
+        // CriaArquivo.lerDados(DadosTexto);
+        // System.out.print("----------------");
+
+        // usando o metodo que serializa os dados
+        String DadosSerializados = "DadosSerializados.ser";
+        CriaArquivo.serializarDados(financiamentos, DadosSerializados);
+
+        // Lendo e desserializando os dados do arquivo serializado
+        ArrayList<Financiamento> DadosDesserializados = CriaArquivo.desserializarDados(DadosSerializados);
+        if (DadosDesserializados != null) {
+            System.out.println("\n---------  Dados lidos do arquivo serializao: ---------");
+            for (Financiamento financiamento : DadosDesserializados) {
+                System.out.printf("Valor do Imóvel: R$ %.2f%n", financiamento.getValorImovel());
+                System.out.printf("Valor do Financiamento: R$ %.2f%n", financiamento.getTotaldoPagamento());
+                financiamento.ShowDadosImovel();
+                System.out.println();
+            }
+        }
     }
 
+    public static class CriaArquivo {
+
+        public static void salvarDados(ArrayList<Financiamento> financiamentos, String nomeArquivo) {
+            try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeArquivo))) {
+                for (Financiamento financiamento : financiamentos) {
+                    escritor.write(String.format("Valor do Imovel: %.2f\n", financiamento.getValorImovel()));
+                    escritor.write(
+                            String.format("Valor do Financiamento: %.2f\n", financiamento.getTotaldoPagamento()));
+                    escritor.write(String.format("Taxa de Juros Anual: %.2f %%\n", financiamento.getTaxaJurosAnual()));
+                    escritor.write(
+                            String.format("Prazo de Financiamento: %d anos\n", financiamento.getPrazoFinanciamento()));
+                    if (financiamento instanceof Apartamento) {
+                        Apartamento apartamento = (Apartamento) financiamento;
+                        escritor.write(
+                                String.format("Numero de Vagas na Garagem: %d\n", apartamento.getNumVagasGaragem()));
+                        escritor.write(
+                                String.format("Numero do Andar do Apartamento: %d\n", apartamento.getNumAndar()));
+                    } else if (financiamento instanceof Casa) {
+                        Casa casa = (Casa) financiamento;
+                        escritor.write(
+                                String.format("Tamanho da Área Construida: %.2f m²\n", casa.getTamAreaConstruida()));
+                        escritor.write(String.format("Tamanho do Terreno: %.2f m²\n", casa.getTamTerreno()));
+                    } else if ((financiamento instanceof Terreno)) {
+                        Terreno terreno = (Terreno) financiamento;
+                        escritor.write(String.format("Tipo da Zona: %s\n", terreno.getTipoZona()));
+                    }
+                    escritor.write("----------------\n");
+                }
+                System.out.println("Dados Foram Salvos com Exito no Arquivo : " + nomeArquivo);
+            } catch (IOException e) {
+                System.err.println("Erro ao Salvar o Arquivo: " + e.getMessage());
+            }
+        }
+
+        // Metodo para Ler os dados do arquivo
+        public static void lerDados(String nomeArquivo) {
+            try (BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo))) {
+                String linhas;
+                while ((linhas = leitor.readLine()) != null) {
+                    System.out.println(linhas);
+                }
+            } catch (IOException e) {
+                System.err.println("Erro ao Tentar ler o Arquivo: " + e.getMessage());
+            }
+        }
+
+        // Metodo para serializar os dados no arquivo
+        public static void serializarDados(ArrayList<Financiamento> financiamentos, String nomeArquivo) {
+            try (ObjectOutputStream saida = new ObjectOutputStream(new FileOutputStream(nomeArquivo))) {
+                saida.writeObject(financiamentos);
+                System.out.println("Dados Serializados com sucesso em : " + nomeArquivo);
+            } catch (IOException e) {
+                System.err.println("Erro ao Serializar Dados : " + e.getMessage());
+            }
+        }
+
+        @SuppressWarnings("unchecked")
+        public static ArrayList<Financiamento> desserializarDados(String nomeArquivo) {
+            ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
+            try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
+                ArrayList<Financiamento> dados = (ArrayList<Financiamento>) entrada.readObject();
+                financiamentos.addAll(dados);
+                System.out.println("Dados Serializados com sucesso em : " + nomeArquivo);
+            } catch (IOException | ClassNotFoundException e) {
+                System.err.println("Erro ao Serializar Dados : " + e.getMessage());
+            }
+            return financiamentos;
+        }
+    }
 }

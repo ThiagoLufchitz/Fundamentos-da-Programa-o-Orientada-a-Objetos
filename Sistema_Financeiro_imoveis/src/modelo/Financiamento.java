@@ -31,6 +31,10 @@ public abstract class Financiamento {
         return taxaJurosAnual;
     }
 
+    public double getTotaldoPagamento() {
+        return TotaldoPagamento();
+    }
+
     // Metodo para calcular o pagamento mensal
     public abstract double PagamentoMensal();
     // {

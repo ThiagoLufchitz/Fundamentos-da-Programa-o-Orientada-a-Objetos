@@ -12,6 +12,10 @@ public class Terreno extends Financiamento {
 
     }
 
+    public String getTipoZona() {
+        return TipoZona;
+    }
+
     // Sob Escrevendo a função de Financiamento
     @Override
     public double PagamentoMensal() {
@@ -25,8 +29,7 @@ public class Terreno extends Financiamento {
     // Sob Escrevendo a função de print
     @Override
     public void ShowDadosImovel() {
-        System.out.printf("Tipo da Zona: %s\n", TipoZona);
         super.ShowDadosImovel();
+        System.out.printf("Tipo da Zona: %s\n", TipoZona);
     }
-
 }

@@ -16,6 +16,14 @@ public class Casa extends Financiamento {
         this.TamTerreno = TamTerreno;
     }
 
+    public double getTamAreaConstruida() {
+        return TamAreaConstruida;
+    }
+
+    public double getTamTerreno() {
+        return TamTerreno;
+    }
+
     // Sob Escrevendo a função de Financiamento
     @Override
     public double PagamentoMensal() {
@@ -34,11 +42,12 @@ public class Casa extends Financiamento {
         }
     }
 
-    // Sob Escrevendo a função de print
+    // SobEscrevendo a função de print pegando dados da mae e acrecenta dados do
+    // filho
     @Override
     public void ShowDadosImovel() {
+        super.ShowDadosImovel();
         System.out.printf("Tamanho da Área Construida: %.2f m²\n", TamAreaConstruida);
         System.out.printf("Tamanho do Terreno: %.2f m²\n", TamTerreno);
-        super.ShowDadosImovel();
     }
 }

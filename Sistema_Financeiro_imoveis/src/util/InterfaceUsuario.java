@@ -115,7 +115,7 @@ public class InterfaceUsuario {
     }
 
     // Metodo para Obter o tamanho da area construida e verificar se o numero nao e
-    // negativo
+    // negativo ou string
     public double TamAreaConstruida() throws EntradaInvalidaException {
         double area;
         while (true) {
@@ -135,6 +135,9 @@ public class InterfaceUsuario {
         }
     }
 
+    // Metodo para Obter o tamanho do terreno construido e verificar se o numero nao
+    // e
+    // negativo ou string
     public double TamTerreno() throws EntradaInvalidaException {
         double terreno;
         while (true) {
@@ -154,6 +157,8 @@ public class InterfaceUsuario {
         }
     }
 
+    // Metodo para Obter o numero de vagas e verificar se o numero nao e
+    // negativo ou String
     public int NumVagasGaragem() throws EntradaInvalidaException {
         int vaga;
         while (true) {
@@ -172,6 +177,8 @@ public class InterfaceUsuario {
         }
     }
 
+    // Metodo para Obter o numero do andar e verificar se o numero nao e
+    // negativo ou String
     public int NumAndar() throws EntradaInvalidaException {
         int andar;
         while (true) {
@@ -190,6 +197,7 @@ public class InterfaceUsuario {
         }
     }
 
+    // Metodo para Obter o Tipo de zona e verificar se e numero
     public String TipoZona() throws EntradaInvalidaException {
         String tipo;
         while (true) {
