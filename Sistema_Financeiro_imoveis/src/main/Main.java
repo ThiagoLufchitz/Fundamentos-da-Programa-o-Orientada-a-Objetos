@@ -74,7 +74,7 @@ public class Main {
                     System.out.println(e.getMessage());
                 }
             }
-            System.out.print("----------------\n");
+            // System.out.print("----------------\n");
 
             Financiamento financiamento = null;
             // Selecionando o tipo do imovel
@@ -154,8 +154,9 @@ public class Main {
                     (i + 1), financiamento.getValorImovel(), financiamento.TotaldoPagamento());
             System.out.println();
             financiamento.ShowDadosImovel();
-        }
 
+        }
+        System.out.print("----------------");
         System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
                 TotaldoImovel, TotaldoFinanciamentos);
 

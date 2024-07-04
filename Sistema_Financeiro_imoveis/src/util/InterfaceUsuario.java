@@ -120,7 +120,7 @@ public class InterfaceUsuario {
         double area;
         while (true) {
             try {
-                System.out.println("Digite o Tamanho da Área Contruida? ");
+                System.out.print("Digite o Tamanho da Área Contruida? ");
                 area = sc.nextDouble();
                 if (area >= 50) {
                     return area;
@@ -139,7 +139,7 @@ public class InterfaceUsuario {
         double terreno;
         while (true) {
             try {
-                System.out.println("Digite o Tamanho do Terreno? ");
+                System.out.print("Digite o Tamanho do Terreno? ");
                 terreno = sc.nextDouble();
                 if (terreno >= 125) {
                     return terreno;

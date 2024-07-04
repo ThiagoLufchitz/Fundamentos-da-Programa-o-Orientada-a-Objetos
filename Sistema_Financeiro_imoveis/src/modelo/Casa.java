@@ -38,7 +38,7 @@ public class Casa extends Financiamento {
     @Override
     public void ShowDadosImovel() {
         System.out.printf("Tamanho da Área Construida: %.2f m²\n", TamAreaConstruida);
-        System.out.printf("Tamanho do Terreno: %.f m²\n", TamTerreno);
+        System.out.printf("Tamanho do Terreno: %.2f m²\n", TamTerreno);
         super.ShowDadosImovel();
     }
 }
