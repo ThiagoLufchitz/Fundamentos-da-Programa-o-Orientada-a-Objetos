@@ -3,7 +3,9 @@
  */
 package modelo;
 
-public abstract class Financiamento {
+import java.io.Serializable;
+
+public abstract class Financiamento implements Serializable {
     // Atributos privados
     private double valorImovel;
     private int prazoFinanciamento;

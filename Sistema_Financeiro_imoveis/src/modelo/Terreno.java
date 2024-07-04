@@ -3,13 +3,20 @@
  */
 package modelo;
 
-public class Terreno extends Financiamento {
+import java.io.Serializable;
+
+@SuppressWarnings("unused")
+public class Terreno extends Financiamento implements Serializable {
     private String TipoZona;
 
     public Terreno(double valorimovel, int prazoMensal, double taxaJurosAnual, String TipoZona) {
         super(valorimovel, prazoMensal, taxaJurosAnual);
         this.TipoZona = TipoZona;
+    }
 
+    public Terreno() {
+        super(0, 0, 0);
+        this.TipoZona = "";
     }
 
     public String getTipoZona() {

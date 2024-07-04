@@ -145,7 +145,7 @@ public class Main {
             TotaldoFinanciamentos += financiamento.TotaldoPagamento();
 
         }
-        System.out.print("----------------\n");
+        System.out.print("-------------------\n");
         // Pegando os valores fornecidos
         for (int i = 0; i < financiamentos.size(); i++) {
             Financiamento financiamento = financiamentos.get(i);
@@ -155,7 +155,7 @@ public class Main {
             financiamento.ShowDadosImovel();
 
         }
-        System.out.print("----------------");
+        System.out.print("-------------------");
         System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
                 TotaldoImovel, TotaldoFinanciamentos);
 
@@ -163,12 +163,13 @@ public class Main {
         String DadosTexto = "DadosFinanciamento.txt";
         CriaArquivo.salvarDados(financiamentos, DadosTexto);
 
-        // // Ler os dados do arquivo
-        // System.out.println("--------- Dados Lidos do Arquivo ---------");
-        // CriaArquivo.lerDados(DadosTexto);
-        // System.out.print("----------------");
+        // Ler os dados do arquivo
+        System.out.println("--------- Dados Lidos do Arquivo ---------");
+        CriaArquivo.lerDados(DadosTexto);
+        System.out.print("-------------------");
 
         // usando o metodo que serializa os dados
+        System.out.print("-------------------");
         String DadosSerializados = "DadosSerializados.ser";
         CriaArquivo.serializarDados(financiamentos, DadosSerializados);
 
@@ -185,10 +186,13 @@ public class Main {
         }
     }
 
+    // Criando uma class para poder manipular o arquivo
     public static class CriaArquivo {
-
+        // Metodo para salvar os dados no arquivo e indentifica os tipos de
+        // financiamento se e casa , apartamento ou terreno
         public static void salvarDados(ArrayList<Financiamento> financiamentos, String nomeArquivo) {
-            try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeArquivo))) {
+            try (BufferedWriter escritor = new BufferedWriter(
+                    new OutputStreamWriter(new FileOutputStream(nomeArquivo, true), "UTF-8"))) {
                 for (Financiamento financiamento : financiamentos) {
                     escritor.write(String.format("Valor do Imovel: %.2f\n", financiamento.getValorImovel()));
                     escritor.write(
@@ -211,7 +215,7 @@ public class Main {
                         Terreno terreno = (Terreno) financiamento;
                         escritor.write(String.format("Tipo da Zona: %s\n", terreno.getTipoZona()));
                     }
-                    escritor.write("----------------\n");
+                    escritor.write("-------------------\n");
                 }
                 System.out.println("Dados Foram Salvos com Exito no Arquivo : " + nomeArquivo);
             } catch (IOException e) {
@@ -221,7 +225,8 @@ public class Main {
 
         // Metodo para Ler os dados do arquivo
         public static void lerDados(String nomeArquivo) {
-            try (BufferedReader leitor = new BufferedReader(new FileReader(nomeArquivo))) {
+            try (BufferedReader leitor = new BufferedReader(
+                    new InputStreamReader(new FileInputStream(nomeArquivo), "UTF-8"))) {
                 String linhas;
                 while ((linhas = leitor.readLine()) != null) {
                     System.out.println(linhas);
@@ -241,13 +246,14 @@ public class Main {
             }
         }
 
+        // Metodo para desseraliar os dados do arquivo
         @SuppressWarnings("unchecked")
         public static ArrayList<Financiamento> desserializarDados(String nomeArquivo) {
             ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
             try (ObjectInputStream entrada = new ObjectInputStream(new FileInputStream(nomeArquivo))) {
                 ArrayList<Financiamento> dados = (ArrayList<Financiamento>) entrada.readObject();
                 financiamentos.addAll(dados);
-                System.out.println("Dados Serializados com sucesso em : " + nomeArquivo);
+                System.out.println("\nDados Desserializados com sucesso em : " + nomeArquivo);
             } catch (IOException | ClassNotFoundException e) {
                 System.err.println("Erro ao Serializar Dados : " + e.getMessage());
             }

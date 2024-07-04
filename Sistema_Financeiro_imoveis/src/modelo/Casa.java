@@ -3,9 +3,12 @@
  */
 package modelo;
 
+import java.io.Serializable;
+
 import modelo.Excecoes.DescontoMaiorDoQueJurosException;
 
-public class Casa extends Financiamento {
+@SuppressWarnings("unused")
+public class Casa extends Financiamento implements Serializable {
     private double TamAreaConstruida;
     private double TamTerreno;
 
@@ -14,6 +17,12 @@ public class Casa extends Financiamento {
         super(valorimovel, prazoMensal, taxaJurosAnual);
         this.TamAreaConstruida = TamAreaConstruida;
         this.TamTerreno = TamTerreno;
+    }
+
+    public Casa() {
+        super(0, 0, 0);
+        this.TamAreaConstruida = 0;
+        this.TamTerreno = 0;
     }
 
     public double getTamAreaConstruida() {

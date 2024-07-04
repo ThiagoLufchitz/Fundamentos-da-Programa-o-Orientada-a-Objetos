@@ -34,7 +34,7 @@ public class InterfaceUsuario {
     public int TipoImovel() throws EntradaInvalidaException {
         while (true) {
             try {
-                System.out.print("O Imóvel a ser Financiado é: Terreno(1), Apartamento(2) ou Casa(3)? ");
+                System.out.print("O Imóvel a ser Financiado é: Terreno(1), Apartamento(2) ou Casa(3): ");
                 int tipo = sc.nextInt();
                 if (tipo >= 1 && tipo <= 3) {
                     return tipo;
@@ -75,7 +75,7 @@ public class InterfaceUsuario {
         int prazo;
         while (true) {
             try {
-                System.out.print("Digite o valor do Prazo Financiado? ");
+                System.out.print("Digite o valor do Prazo Financiado: ");
                 prazo = sc.nextInt();
                 if (prazo >= 1 && prazo <= 35) {
                     return prazo;
@@ -98,7 +98,7 @@ public class InterfaceUsuario {
         double taxa;
         while (true) {
             try {
-                System.out.print("Digite o valor da Taxa de Juros Anual? ");
+                System.out.print("Digite o valor da Taxa de Juros Anual: ");
                 taxa = sc.nextDouble();
                 if (taxa > 0 && taxa <= 12) {
                     return taxa;
@@ -120,7 +120,7 @@ public class InterfaceUsuario {
         double area;
         while (true) {
             try {
-                System.out.print("Digite o Tamanho da Área Contruida? ");
+                System.out.print("Digite o Tamanho da Área Contruida: ");
                 area = sc.nextDouble();
                 if (area >= 50) {
                     return area;
@@ -142,7 +142,7 @@ public class InterfaceUsuario {
         double terreno;
         while (true) {
             try {
-                System.out.print("Digite o Tamanho do Terreno? ");
+                System.out.print("Digite o Tamanho do Terreno: ");
                 terreno = sc.nextDouble();
                 if (terreno >= 125) {
                     return terreno;
@@ -183,7 +183,7 @@ public class InterfaceUsuario {
         int andar;
         while (true) {
             try {
-                System.out.print("Digite o Número do Andar? ");
+                System.out.print("Digite o Número do Andar do Apartamento : ");
                 andar = sc.nextInt();
                 if (andar >= 0) {
                     return andar;

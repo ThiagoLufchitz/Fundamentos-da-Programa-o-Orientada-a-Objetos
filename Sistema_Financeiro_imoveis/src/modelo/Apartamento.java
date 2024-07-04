@@ -3,7 +3,10 @@
  */
 package modelo;
 
-public class Apartamento extends Financiamento {
+import java.io.Serializable;
+
+@SuppressWarnings("unused")
+public class Apartamento extends Financiamento implements Serializable {
     private int NumVagasGaragem;
     private int NumAndar;
 
@@ -12,6 +15,12 @@ public class Apartamento extends Financiamento {
         super(valorimovel, prazoMensal, taxaJurosAnual);
         this.NumVagasGaragem = NumVagasGaragem;
         this.NumAndar = NumAndar;
+    }
+
+    public Apartamento() {
+        super(0, 0, 0);
+        this.NumVagasGaragem = 0;
+        this.NumAndar = 0;
     }
 
     public int getNumVagasGaragem() {
