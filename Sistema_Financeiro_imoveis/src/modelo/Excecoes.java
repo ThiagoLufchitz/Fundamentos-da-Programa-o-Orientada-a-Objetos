@@ -12,6 +12,5 @@ public class Excecoes {
         public EntradaInvalidaException(String message) {
             super(message);
         }
-
     }
 }

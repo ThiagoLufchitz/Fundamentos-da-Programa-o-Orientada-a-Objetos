@@ -5,48 +5,136 @@ package main;
 
 import java.util.ArrayList;
 
-import modelo.*;
-import util.*;
+import modelo.Apartamento;
+import modelo.Casa;
+import modelo.Terreno;
+import modelo.Financiamento;
+import modelo.Excecoes.EntradaInvalidaException;
+import util.InterfaceUsuario;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws EntradaInvalidaException {
         double TotaldoImovel = 0;
         double TotaldoFinanciamentos = 0;
 
-        IntefacerUsuario intefaceUsuario = new IntefacerUsuario();
+        InterfaceUsuario interfaceUsuario = new InterfaceUsuario();
 
         ArrayList<Financiamento> financiamentos = new ArrayList<Financiamento>();
 
-        int nImoveis = intefaceUsuario.qtdImoveis();
+        int nImoveis = 0;
+
+        while (true) {
+            try {
+                nImoveis = interfaceUsuario.qtdImoveis();
+                break;
+            } catch (EntradaInvalidaException e) {
+                System.out.println(e.getMessage());
+            }
+        }
 
         // Solicitando quato imoveis para o usuario
         for (int i = 1; i <= nImoveis; i++) {
-            System.out.printf("Digite os Dados do &d° Imovel :", i);
-            int tipoImovel = intefaceUsuario.TipoImovel();
-            double ValorImovel = intefaceUsuario.ValorImovel();
-            int prazoFinanciamento = intefaceUsuario.PrazoFinanciamento();
-            double taxaJurosAnual = intefaceUsuario.TaxaJurosAnual();
-            System.out.print("----------------");
-            System.out.println();
+            System.out.printf("Digite os Dados do %d° Imovel ->  ", i);
+            int tipoImovel = 0;
+            double ValorImovel = 0;
+            int prazoFinanciamento = 0;
+            double taxaJurosAnual = 0;
+            while (true) {
+                try {
+                    tipoImovel = interfaceUsuario.TipoImovel();
+                    break;
+                } catch (EntradaInvalidaException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            while (true) {
+                try {
+                    ValorImovel = interfaceUsuario.ValorImovel();
+                    break;
+                } catch (EntradaInvalidaException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            while (true) {
+                try {
+                    prazoFinanciamento = interfaceUsuario.PrazoFinanciamento();
+                    break;
+                } catch (EntradaInvalidaException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            while (true) {
+                try {
+                    taxaJurosAnual = interfaceUsuario.TaxaJurosAnual();
+                    break;
+                } catch (EntradaInvalidaException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            System.out.print("----------------\n");
+
             Financiamento financiamento = null;
             // Selecionando o tipo do imovel
             switch (tipoImovel) {
                 case 1:
-                    String TipoZona = intefaceUsuario.TipoZona();
+                    String tipoZona = "";
+                    while (true) {
+                        try {
+                            tipoZona = interfaceUsuario.TipoZona();
+                            break;
+                        } catch (EntradaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     financiamento = new Terreno(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual, TipoZona);
+                            taxaJurosAnual, tipoZona);
                     break;
                 case 2:
-                    int NumVagasGaragem = intefaceUsuario.NumVagasGaragem();
-                    int NumAndar = intefaceUsuario.NumAndar();
+                    int numVagasGaragem = 0;
+                    int numAndar = 0;
+                    while (true) {
+                        try {
+                            numVagasGaragem = interfaceUsuario.NumVagasGaragem();
+                            break;
+                        } catch (EntradaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                    while (true) {
+                        try {
+                            numAndar = interfaceUsuario.NumAndar();
+                            break;
+                        } catch (EntradaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     financiamento = new Apartamento(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual, NumVagasGaragem, NumAndar);
+                            taxaJurosAnual, numVagasGaragem, numAndar);
                     break;
                 case 3:
-                    double TamAreaConstruida = intefaceUsuario.TamAreaConstruida();
-                    double TamTerreno = intefaceUsuario.TamTerreno();
+                    double tamAreaConstruida = 0;
+                    double tamTerreno = 0;
+                    while (true) {
+                        try {
+                            tamAreaConstruida = interfaceUsuario.TamAreaConstruida();
+                            break;
+                        } catch (EntradaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                    while (true) {
+                        try {
+                            tamTerreno = interfaceUsuario.TamTerreno();
+                            break;
+                        } catch (EntradaInvalidaException e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
                     financiamento = new Casa(ValorImovel, prazoFinanciamento,
-                            taxaJurosAnual, TamAreaConstruida, TamTerreno);
+                            taxaJurosAnual, tamAreaConstruida, tamTerreno);
                     break;
                 default:
                     System.out.println("Tipo de imóvel inválido.");
@@ -70,6 +158,7 @@ public class Main {
 
         System.out.printf("\nTotal de todos os imóveis: R$ %.2f , Total de todos os financiamentos: R$ %.3f%n",
                 TotaldoImovel, TotaldoFinanciamentos);
+
     }
 
 }
